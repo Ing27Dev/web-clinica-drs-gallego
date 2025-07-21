@@ -2,13 +2,13 @@
 <html lang="es">
   <head>
       <!-- Título para el navegador y los buscadores -->
-      <title>Contacto</title>
+      <title>Contacto - Clínica Drs Gallego</title>
 
       <!-- Descripción de la página para los buscadores -->
-      <meta name="description" content="Página clínica dental doctores Gallego">
+      <meta name="description" content="Contacta con la clínica Drs Gallego">
     
       <!-- Palabras clave para los buscadores -->
-      <meta name="keywords" content="p, h1, h2, h3, h4, h5">
+      <meta name="keywords" content="contacto, cita, consulta, clínica">
     
       <!-- Autor de la página -->
       <meta name="author" content="@IngDev">
@@ -23,34 +23,134 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
       <!-- Para algunos navegadores móviles -->
-      <meta name="theme-color" content="#1e7bbf">
+      <meta name="theme-color" content="#87cde7">
+      
+      <!-- Font Awesome para iconos -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      
+      <!-- Estilos CSS -->
+      <link rel="stylesheet" href="css/styles.css">
   </head>
 
-  <body>
+      <body>
+      <!-- Información de contacto en header -->
+      <div class="header-info">
+        <div class="header-info-content">
+          <div class="contact-info">
+            <span><i class="fas fa-clock"></i> Lunes - Viernes: 9:00 - 18:00</span>
+            <span><i class="fas fa-phone"></i> +34 123 456 789</span>
+            <span><i class="fas fa-map-marker-alt"></i> Calle nombre 123, pueblo, ciudad</span>
+          </div>
+          <div class="social-links">
+            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
 
-    <header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="tratamientos.html">Tratamientos</a></li>
-          <li><a href="la_clinica.html">La clínica</a>
-            <ul>
-              <li><a href="instalaciones.html">Instalaciones</a></li>
-              <li><a href="equipo.html">Equipo</a></li>
-            </ul>
-          </li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
-      
-    </header>
-    <hr />
+      <header>
+        <nav>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="tratamientos.html">Tratamientos</a></li>
+            <li><a href="la_clinica.html">La clínica</a>
+              <ul>
+                <li><a href="instalaciones.html">Instalaciones</a></li>
+                <li><a href="equipo.html">Equipo</a></li>
+              </ul>
+            </li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+      </header>
+
     <main>
-        
+      <section class="contacto">
+        <h3>Contacto</h3>
+        <div class="contacto-content">
+          <div class="contacto-info">
+            <h4>Información de Contacto</h4>
+            <div class="contacto-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h5>Dirección</h5>
+                <p>Calle Principal 123<br>28001 Madrid, España</p>
+              </div>
+            </div>
+            
+            <div class="contacto-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h5>Teléfono</h5>
+                <p>+34 123 456 789</p>
+              </div>
+            </div>
+            
+            <div class="contacto-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h5>Email</h5>
+                <p>info@clinica-drs-gallego.com</p>
+              </div>
+            </div>
+            
+            <div class="contacto-item">
+              <i class="fas fa-clock"></i>
+              <div>
+                <h5>Horario</h5>
+                <p>Lunes - Viernes: 9:00 - 18:00<br>Sábados: 9:00 - 14:00</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contacto-formulario">
+            <h4>Solicita tu Cita</h4>
+            <form class="formulario-contacto">
+              <div class="form-group">
+                <label for="nombre">Nombre completo *</label>
+                <input type="text" id="nombre" name="nombre" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              
+              <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono">
+              </div>
+              
+              <div class="form-group">
+                <label for="tratamiento">Tratamiento de interés</label>
+                <select id="tratamiento" name="tratamiento">
+                  <option value="">Selecciona un tratamiento</option>
+                  <option value="odontologia-general">Odontología General</option>
+                  <option value="ortodoncia">Ortodoncia</option>
+                  <option value="implantes">Implantes Dentales</option>
+                  <option value="estetica">Estética Dental</option>
+                  <option value="odontopediatria">Odontopediatría</option>
+                  <option value="endodoncia">Endodoncia</option>
+                </select>
+              </div>
+              
+              <div class="form-group">
+                <label for="mensaje">Mensaje *</label>
+                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+              </div>
+              
+              <button type="submit" class="btn-enviar">
+                <i class="fas fa-paper-plane"></i>
+                Enviar Mensaje
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
+
     <footer>
-      <hr />
-      <p>© Clinica Drs Gallego</p>
-  </footer>
+      <p>© Clínica Drs Gallego - Todos los derechos reservados</p>
+    </footer>
   </body>
 </html>

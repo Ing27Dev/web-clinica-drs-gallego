@@ -2,13 +2,13 @@
 <html lang="es">
   <head>
       <!-- Título para el navegador y los buscadores -->
-      <title>La clínica</title>
+      <title>La Clínica - Clínica Drs Gallego</title>
 
       <!-- Descripción de la página para los buscadores -->
-      <meta name="description" content="Página clínica dental doctores Gallego">
+      <meta name="description" content="Conoce nuestra clínica dental Drs Gallego">
     
       <!-- Palabras clave para los buscadores -->
-      <meta name="keywords" content="p, h1, h2, h3, h4, h5">
+      <meta name="keywords" content="clínica, dental, instalaciones, equipo">
     
       <!-- Autor de la página -->
       <meta name="author" content="@IngDev">
@@ -23,37 +23,91 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
       <!-- Para algunos navegadores móviles -->
-      <meta name="theme-color" content="#1e7bbf">
+      <meta name="theme-color" content="#87cde7">
+      
+      <!-- Font Awesome para iconos -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      
+      <!-- Estilos CSS -->
+      <link rel="stylesheet" href="css/styles.css">
   </head>
 
-  <body>
+      <body>
+      <!-- Información de contacto en header -->
+      <div class="header-info">
+        <div class="header-info-content">
+          <div class="contact-info">
+            <span><i class="fas fa-clock"></i> Lunes - Viernes: 9:00 - 18:00</span>
+            <span><i class="fas fa-phone"></i> +34 123 456 789</span>
+            <span><i class="fas fa-map-marker-alt"></i> Calle nombre 123, pueblo, ciudad</span>
+          </div>
+          <div class="social-links">
+            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
 
-    <header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="tratamientos.html">Tratamientos</a></li>
-          <li><a href="la_clinica.html">La clínica</a>
-            <ul>
-              <li><a href="instalaciones.html">Instalaciones</a></li>
-              <li><a href="equipo.html">Equipo</a></li>
-            </ul>
-          </li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
-      
-    </header>
-    <hr />
+      <header>
+        <nav>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="tratamientos.html">Tratamientos</a></li>
+            <li><a href="la_clinica.html">La clínica</a>
+              <ul>
+                <li><a href="instalaciones.html">Instalaciones</a></li>
+                <li><a href="equipo.html">Equipo</a></li>
+              </ul>
+            </li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+      </header>
+
     <main>
-      <h3>Quienes somos</h3>
-      
-      <h3>Reseñas</h3>
-      
+      <section class="la-clinica">
+        <h3>La Clínica</h3>
+        <div class="clinica-content">
+          <div class="clinica-texto">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+          </div>
+          <div class="clinica-imagen">
+            <img src="img/relleno1.gif" alt="Nuestra Clínica">
+          </div>
+        </div>
+        
+        <div class="clinica-caracteristicas">
+          <div class="caracteristica-item">
+            <div class="caracteristica-icon">
+              <i class="fas fa-award"></i>
+            </div>
+            <h4>Experiencia</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+          
+          <div class="caracteristica-item">
+            <div class="caracteristica-icon">
+              <i class="fas fa-user-md"></i>
+            </div>
+            <h4>Profesionalidad</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+          
+          <div class="caracteristica-item">
+            <div class="caracteristica-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h4>Cuidado</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+        </div>
+      </section>
     </main>
+
     <footer>
-      <hr />
-      <p>© Clinica Drs Gallego</p>
-  </footer>
+      <p>© Clínica Drs Gallego - Todos los derechos reservados</p>
+    </footer>
   </body>
 </html>

@@ -2,13 +2,13 @@
 <html lang="es">
   <head>
       <!-- Título para el navegador y los buscadores -->
-      <title>Equipo</title>
+      <title>Equipo - Clínica Drs Gallego</title>
 
       <!-- Descripción de la página para los buscadores -->
-      <meta name="description" content="Página clínica dental doctores Gallego">
+      <meta name="description" content="Conoce nuestro equipo médico">
     
       <!-- Palabras clave para los buscadores -->
-      <meta name="keywords" content="p, h1, h2, h3, h4, h5">
+      <meta name="keywords" content="equipo, médicos, dentistas, profesionales">
     
       <!-- Autor de la página -->
       <meta name="author" content="@IngDev">
@@ -23,34 +23,120 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
       <!-- Para algunos navegadores móviles -->
-      <meta name="theme-color" content="#1e7bbf">
+      <meta name="theme-color" content="#87cde7">
+      
+      <!-- Font Awesome para iconos -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      
+      <!-- Estilos CSS -->
+      <link rel="stylesheet" href="css/styles.css">
   </head>
 
-  <body>
+      <body>
+      <!-- Información de contacto en header -->
+      <div class="header-info">
+        <div class="header-info-content">
+          <div class="contact-info">
+            <span><i class="fas fa-clock"></i> Lunes - Viernes: 9:00 - 18:00</span>
+            <span><i class="fas fa-phone"></i> +34 123 456 789</span>
+            <span><i class="fas fa-map-marker-alt"></i> Calle nombre 123, pueblo, ciudad</span>
+          </div>
+          <div class="social-links">
+            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
 
-    <header>
-      <nav>
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="tratamientos.html">Tratamientos</a></li>
-          <li><a href="la_clinica.html">La clínica</a>
-            <ul>
-              <li><a href="instalaciones.html">Instalaciones</a></li>
-              <li><a href="equipo.html">Equipo</a></li>
-            </ul>
-          </li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
-      
-    </header>
-    <hr />
+      <header>
+        <nav>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="tratamientos.html">Tratamientos</a></li>
+            <li><a href="la_clinica.html">La clínica</a>
+              <ul>
+                <li><a href="instalaciones.html">Instalaciones</a></li>
+                <li><a href="equipo.html">Equipo</a></li>
+              </ul>
+            </li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+      </header>
+
     <main>
+      <section class="equipo">
+        <h3>Nuestro Equipo</h3>
+        <div class="equipo-intro">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
         
+        <div class="equipo-grid">
+          <div class="miembro-card">
+            <div class="miembro-imagen">
+              <img src="img/relleno1.gif" alt="Dr. Carlos Gallego">
+            </div>
+            <div class="miembro-info">
+              <h4>Dr. Carlos Gallego</h4>
+              <p class="miembro-especialidad">Odontólogo General</p>
+              <p class="miembro-descripcion">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+              <div class="miembro-social">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="miembro-card">
+            <div class="miembro-imagen">
+              <img src="img/relleno1.gif" alt="Dra. María Gallego">
+            </div>
+            <div class="miembro-info">
+              <h4>Dra. María Gallego</h4>
+              <p class="miembro-especialidad">Ortodoncista</p>
+              <p class="miembro-descripcion">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+              <div class="miembro-social">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="miembro-card">
+            <div class="miembro-imagen">
+              <img src="img/relleno1.gif" alt="Dr. Javier López">
+            </div>
+            <div class="miembro-info">
+              <h4>Dr. Javier López</h4>
+              <p class="miembro-especialidad">Cirujano Oral</p>
+              <p class="miembro-descripcion">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+              <div class="miembro-social">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="miembro-card">
+            <div class="miembro-imagen">
+              <img src="img/relleno1.gif" alt="Dra. Ana Martínez">
+            </div>
+            <div class="miembro-info">
+              <h4>Dra. Ana Martínez</h4>
+              <p class="miembro-especialidad">Odontopediatra</p>
+              <p class="miembro-descripcion">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+              <div class="miembro-social">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fas fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
     <footer>
-      <hr />
-      <p>© Clinica Drs Gallego</p>
-  </footer>
+      <p>© Clínica Drs Gallego - Todos los derechos reservados</p>
+    </footer>
   </body>
 </html>
