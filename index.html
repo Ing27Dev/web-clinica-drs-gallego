@@ -40,13 +40,13 @@
       <div class="header-info">
         <div class="header-info-content">
           <div class="contact-info">
-            <span><i class="fas fa-clock"></i> Lunes - Viernes: 9:00 - 18:00</span>
-            <span><i class="fas fa-phone"></i> +34 123 456 789</span>
-            <span><i class="fas fa-map-marker-alt"></i> Calle nombre 123, pueblo, ciudad</span>
+            <span><i class="fas fa-clock"></i> Lun - Vie: 10:00 - 13:00 | Lun, Mar, Jue: 15:00 - 20:00</span>
+            <span><i class="fas fa-phone"></i> 957 103 462 | 630 553 177</span>
+            <span><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/Clinica+Dental+Doctores+Gallego/@38.5779152,-5.1672707,19z/data=!3m1!4b1!4m6!3m5!1s0xd14a9a1a9284e49:0x70753e618b21de41!8m2!3d38.5779152!4d-5.166627!16s%2Fg%2F11c30zx25y?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Calle Sebastián de Belalcázar, nº 2. Belalcázar, 14280, Córdoba</a></span>
           </div>
           <div class="social-links">
-            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/ClinicaDrsGallego/?locale=es_ES" title="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/clinicadentaldrsgallego/" title="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
       </div>
@@ -57,7 +57,10 @@
             <div class="logo-temp">
               <span class="logo-icon"><i class="fas fa-plus"></i></span>
             </div>
-            <span class="brand-name">Clínica Drs Gallego</span>
+            <div class="menu-branding-texts">
+              <span class="brand-name-slim">Clínica Dental</span>
+              <span class="brand-name">Drs Gallego</span>
+            </div>
           </div>
           <button class="menu-toggle" aria-label="Abrir menú">
             <span class="menu-icon"><i class="fas fa-bars"></i></span>
@@ -65,12 +68,7 @@
           <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="tratamientos.html">Tratamientos</a></li>
-            <li><a href="la_clinica.html">La clínica <i class='fas fa-chevron-down'></i></a>
-              <ul>
-                <li><a href="instalaciones.html">Instalaciones</a></li>
-                <li><a href="equipo.html">Equipo</a></li>
-              </ul>
-            </li>
+            <li><a href="la_clinica.html">La clínica</a></li>
             <li><a href="contacto.html">Contacto</a></li>
           </ul>
         </nav>
@@ -78,34 +76,15 @@
 
     <main>
       <section class="quienes-somos">
+        <div class="video-bg-container">
+          <video class="video-bg" src="assets/prueba.mp4" autoplay loop muted playsinline></video>
+        </div>
         <h3>Quienes Somos</h3>
         <div class="quienes-somos-content">
           <div class="quienes-somos-texto">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-          </div>
-        </div>
-      </section>
-      <section class="carrusel">
-        <div class="carrusel-container">
-          <div class="carrusel-slide active">
-            <img src="img/relleno1.gif" alt="Clínica Drs Gallego - Imagen 1">
-          </div>
-          <div class="carrusel-slide">
-            <img src="img/relleno1.gif" alt="Clínica Drs Gallego - Imagen 2">
-          </div>
-          <div class="carrusel-slide">
-            <img src="img/relleno1.gif" alt="Clínica Drs Gallego - Imagen 3">
-          </div>
-          <div class="carrusel-slide">
-            <img src="img/relleno1.gif" alt="Clínica Drs Gallego - Imagen 4">
-          </div>
-          <div class="carrusel-nav">
-            <div class="carrusel-dot active" data-slide="0"></div>
-            <div class="carrusel-dot" data-slide="1"></div>
-            <div class="carrusel-dot" data-slide="2"></div>
-            <div class="carrusel-dot" data-slide="3"></div>
           </div>
         </div>
       </section>
@@ -122,7 +101,7 @@
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
             </div>
-            <div class="resenas-base">En base a <a href="#" class="resenas-link">63 reseñas</a></div>
+            <div class="resenas-base">En base a <a href="https://www.google.com/search?sca_esv=8a9b147c61cd596e&sxsrf=AE3TifMfbAmHEyrl6N_LyEhJCYQkSdIw8A:1753522499102&uds=AOm0WdE2fekQnsyfYEw8JPYozOKzpVxMuW-e-iHDYOsGGirzmaoMqPViaUobrAbSr0tuHxEL1d1cUQlzmtn63YKQQV4MlQk1crH5BcM6HO6eepMNYPTKVAsuMQaGmYvz9trVGx8F-8t13sDy-l2cbe8MO9W0dYdBg3C5moWkpZjM024EWMWVCgwY4bCHFWR-T7WSuN7jMIyy&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-EzNnxOmRQ8-4Q3w-LBcrR2HIm4dx6DMXDr1EgGmr-sHX3LJoucEmAfPjiPxkDv0ERwxoL5Y%3D&q=Clinica+Dental+Doctores+Gallego+Rese%C3%B1as&sa=X&ved=2ahUKEwi5saitnNqOAxWfUaQEHaC7Ly0Q3PALegQIPRAF&biw=1280&bih=598&dpr=1.5" class="resenas-link" target="_blank" rel="noopener">63 reseñas</a></div>
             <div class="resenas-google"><img src="img/Google-Logo.png" alt="Google logo" class="google-logo-img" style="height: 48px;"></div>
           </div>
           <div class="resenas-slider">
@@ -130,10 +109,12 @@
             <div class="resenas-grid">
             <div class="resena-card">
               <div class="resena-header">
-                <div class="resena-avatar">N</div>
+                <div class="resena-avatar">
+                  <img src="https://lh3.googleusercontent.com/a-/ALV-UjVmreMfymLihFB2niD1X5_smaG7rhzxruKjfkoOhmEo65Wk2oeT=w108-h108-p-rp-mo-br100" alt="Foto de Pepe Vilanova" style="width:40px; height:40px; border-radius:50%;">
+                </div>
                 <div class="resena-info">
-                  <h4>Nombre Apellido</h4>
-                  <p>Paciente desde 2020</p>
+                  <h4>Pepe Vilanova</h4>
+                  <p>Paciente en 2025</p>
                 </div>
               </div>
               <div class="resena-estrellas">
@@ -144,7 +125,7 @@
                 <i class="fas fa-star"></i>
               </div>
               <div class="resena-texto">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                "No es fácil encontrar un sitio donde te sientas tan tranquilo y en buenas manos. El equipo es súper profesional pero, sobre todo, muy humano. Explican todo con paciencia, te escuchan y se nota que les importa que estés bien. Salí contentísimo, no solo por el resultado, sino por cómo me han tratado. ¡Gracias de verdad!"
               </div>
             </div>
             

@@ -58,8 +58,13 @@ document.addEventListener('DOMContentLoaded', function() {
   if (submenuParent) {
     submenuParent.addEventListener('click', function(e) {
       if (window.innerWidth <= 900) {
-        e.preventDefault();
-        this.parentElement.classList.toggle('open');
+        const parentLi = this.parentElement;
+        if (!parentLi.classList.contains('open')) {
+          e.preventDefault();
+          parentLi.classList.add('open');
+        } else {
+          // Si ya está abierto, permite la navegación
+        }
       }
     });
   }
