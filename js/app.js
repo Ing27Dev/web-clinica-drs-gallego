@@ -47,9 +47,19 @@ document.addEventListener('DOMContentLoaded', function() {
   // Menú hamburguesa (en todas las vistas)
   const menuToggle = document.querySelector('.menu-toggle');
   const navMenu = document.querySelector('nav ul');
+  
   if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', function() {
+    menuToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
       navMenu.classList.toggle('open');
+    });
+    
+    // Cerrar menú al hacer clic fuera de él
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('nav') && navMenu.classList.contains('open')) {
+        navMenu.classList.remove('open');
+      }
     });
   }
 
@@ -68,6 +78,66 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+  // Header-info móvil con iconos desplegables
+  const contactItems = document.querySelectorAll('.contact-item');
+  let activeContactItem = null;
+
+  function closeAllContactDetails() {
+    contactItems.forEach(item => {
+      const icon = item.querySelector('.contact-icon');
+      const details = item.querySelector('.contact-details');
+      icon.classList.remove('active');
+      details.classList.remove('active');
+    });
+    activeContactItem = null;
+  }
+
+  function initMobileContactBehavior() {
+    if (window.innerWidth <= 1050) {
+      contactItems.forEach(item => {
+        const icon = item.querySelector('.contact-icon');
+        const details = item.querySelector('.contact-details');
+
+        icon.addEventListener('click', function(e) {
+          e.stopPropagation();
+          
+          // Si el mismo item ya está activo, cerrarlo
+          if (activeContactItem === item) {
+            closeAllContactDetails();
+            return;
+          }
+
+          // Cerrar el item activo anterior
+          closeAllContactDetails();
+
+          // Activar el nuevo item
+          icon.classList.add('active');
+          details.classList.add('active');
+          activeContactItem = item;
+        });
+      });
+
+      // Cerrar al hacer clic fuera
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.contact-item')) {
+          closeAllContactDetails();
+        }
+      });
+    }
+  }
+
+  // Inicializar comportamiento móvil
+  initMobileContactBehavior();
+
+  // Reinicializar al cambiar el tamaño de la ventana
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 1050) {
+      closeAllContactDetails();
+    } else {
+      initMobileContactBehavior();
+    }
+  });
 });
 
 // Navegación de reseñas con flechas (2 tarjetas visibles)
@@ -80,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentIndex = 0;
     const cardWidth = 300;
     const gap = 32; // 2rem gap
-    const visibleCards = 2;
+    const visibleCards = 3;
     const totalCards = resenasGrid.querySelectorAll('.resena-card').length;
     const maxIndex = totalCards - visibleCards;
 

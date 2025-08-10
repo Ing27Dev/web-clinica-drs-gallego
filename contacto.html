@@ -2,10 +2,10 @@
 <html lang="es">
   <head>
       <!-- Título para el navegador y los buscadores -->
-      <title>Contacto - Clínica Drs Gallego</title>
+      <title>Contacto - Empresa</title>
 
       <!-- Descripción de la página para los buscadores -->
-      <meta name="description" content="Contacta con la clínica Drs Gallego">
+      <meta name="description" content="Contacta con la empresa">
     
       <!-- Palabras clave para los buscadores -->
       <meta name="keywords" content="contacto, cita, consulta, clínica">
@@ -37,18 +37,19 @@
 
       <header>
         <nav>
-          <div class="menu-branding">
-            <div class="logo-temp">
-              <span class="logo-icon"><i class="fas fa-plus"></i></span>
+          <div class="nav-container">
+            <div class="menu-branding">
+              <div class="logo-temp">
+                <span class="logo-icon"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="menu-branding-texts">
+                <span class="brand-name-slim">Empresa</span>
+              </div>
             </div>
-            <div class="menu-branding-texts">
-              <span class="brand-name-slim">Clínica Dental</span>
-              <span class="brand-name">Drs Gallego</span>
-            </div>
+            <button class="menu-toggle" aria-label="Abrir menú">
+              <span class="menu-icon"><i class="fas fa-bars"></i></span>
+            </button>
           </div>
-          <button class="menu-toggle" aria-label="Abrir menú">
-            <span class="menu-icon"><i class="fas fa-bars"></i></span>
-          </button>
           <ul>
             <li><a href="index.html">Inicio</a></li>
             <li><a href="tratamientos.html">Tratamientos</a></li>
@@ -57,15 +58,14 @@
           </ul>
         </nav>
       </header>
-
     <main>
       <section class="contacto">
         <h3>Contacto</h3>
         <div class="contacto-content">
-          <div class="contacto-info">
-            <h4>Información de Contacto</h4>
+          <!-- Primera fila: Dirección, Teléfonos y Horarios -->
+          <div class="contacto-fila contacto-fila-info">
             <a href="https://www.google.com/maps/place/Clinica+Dental+Doctores+Gallego/@38.5779152,-5.1672707,19z/data=!3m1!4b1!4m6!3m5!1s0xd14a9a1a9284e49:0x70753e618b21de41!8m2!3d38.5779152!4d-5.166627!16s%2Fg%2F11c30zx25y?entry=ttu&g_ep=EgoyMDI1MDcyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
-              <div class="contacto-item">
+              <div class="contacto-card">
                 <i class="fas fa-map-marker-alt"></i>
                 <div>
                   <h5>Dirección</h5>
@@ -73,22 +73,24 @@
                 </div>
               </div>
             </a>
-            <div class="contacto-item">
-              <i class="fas fa-phone"></i>
-              <div>
-                <h5>Teléfonos</h5>
-                <p>957 103 462 | 630 553 177</p>
-              </div>
+            
+            <div class="contacto-card info-only">
+              <span><i class="fas fa-phone"></i> 957 103 462<br><i class="fas fa-mobile-alt"></i> 691 134 918</span>
             </div>
-            <div class="contacto-item">
+            
+            <div class="contacto-card info-only">
               <i class="fas fa-clock"></i>
               <div>
                 <h5>Horario</h5>
-                <p>Lun - Vie: 10:00 - 13:00<br>Lun, Mar, Jue: 15:00 - 20:00</p>
+                <p>Lun, Mar, Jue: 10:00 - 20:00<br>Mie, Vie: 10:00 - 13:30</p>
               </div>
             </div>
+          </div>
+          
+          <!-- Segunda fila: Facebook e Instagram -->
+          <div class="contacto-fila contacto-fila-social">
             <a href="https://www.facebook.com/ClinicaDrsGallego/?locale=es_ES" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
-              <div class="contacto-item">
+              <div class="contacto-card">
                 <i class="fab fa-facebook"></i>
                 <div>
                   <h5>Facebook</h5>
@@ -96,8 +98,9 @@
                 </div>
               </div>
             </a>
+            
             <a href="https://www.instagram.com/clinicadentaldrsgallego/" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
-              <div class="contacto-item">
+              <div class="contacto-card">
                 <i class="fab fa-instagram"></i>
                 <div>
                   <h5>Instagram</h5>
@@ -106,56 +109,36 @@
               </div>
             </a>
           </div>
-          
-          <div class="contacto-formulario">
-            <h4>Solicita tu Cita</h4>
-            <form class="formulario-contacto">
-              <div class="form-group">
-                <label for="nombre">Nombre completo *</label>
-                <input type="text" id="nombre" name="nombre" required>
-              </div>
-              
-              <div class="form-group">
-                <label for="email">Email *</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-              
-              <div class="form-group">
-                <label for="telefono">Teléfono</label>
-                <input type="tel" id="telefono" name="telefono">
-              </div>
-              
-              <div class="form-group">
-                <label for="tratamiento">Tratamiento de interés</label>
-                <select id="tratamiento" name="tratamiento">
-                  <option value="">Selecciona un tratamiento</option>
-                  <option value="odontologia-general">Odontología General</option>
-                  <option value="ortodoncia">Ortodoncia</option>
-                  <option value="implantes">Implantes Dentales</option>
-                  <option value="estetica">Estética Dental</option>
-                  <option value="odontopediatria">Odontopediatría</option>
-                  <option value="endodoncia">Endodoncia</option>
-                </select>
-              </div>
-              
-              <div class="form-group">
-                <label for="mensaje">Mensaje *</label>
-                <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-              </div>
-              
-              <button type="submit" class="btn-enviar">
-                <i class="fas fa-paper-plane"></i>
-                Enviar Mensaje
-              </button>
-            </form>
+        </div>
+        
+        <!-- Mapa de ubicación -->
+        <div class="contacto-mapa">
+          <h4>Ubicación</h4>
+          <div class="mapa-container">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.5779152!2d-5.1672707!3d38.5779152!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd14a9a1a9284e49%3A0x70753e618b21de41!2sClinica%20Dental%20Doctores%20Gallego!5e0!3m2!1ses!2ses!4v1703123456789!5m2!1ses!2ses" 
+              width="100%" 
+              height="400" 
+              style="border:0;" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Ubicación de Empresa">
+            </iframe>
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>© Clínica Drs Gallego - Todos los derechos reservados</p>
+      <p>© Empresa - Todos los derechos reservados</p>
     </footer>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/34691134918" class="whatsapp-float" target="_blank" rel="noopener" title="Contactar por WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
     <script src="js/app.js"></script>
   </body>
 </html>
