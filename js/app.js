@@ -140,6 +140,66 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// Galería por tarjeta de tratamiento
+document.addEventListener('DOMContentLoaded', function() {
+  const galerias = document.querySelectorAll('.tratamiento-galeria');
+  
+  galerias.forEach((galeria, galeriaIndex) => {
+    const track = galeria.querySelector('.tg-track');
+    const slides = galeria.querySelectorAll('.tg-slide');
+    const prev = galeria.querySelector('.tg-prev');
+    const next = galeria.querySelector('.tg-next');
+    
+    let currentIndex = 0;
+    
+    function updateGallery() {
+      // Mover el track
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      
+      // Botón previo - solo ocultar si es la primera imagen
+      if (prev) {
+        if (currentIndex === 0) {
+          prev.style.display = 'none';
+        } else {
+          prev.style.display = 'flex';
+        }
+      }
+      
+      // Botón siguiente - solo ocultar si es la última imagen
+      if (next) {
+        if (currentIndex === slides.length - 1) {
+          next.style.display = 'none';
+        } else {
+          next.style.display = 'flex';
+        }
+      }
+    }
+    
+    // Botón previo
+    if (prev) {
+      prev.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateGallery();
+        }
+      });
+    }
+    
+    // Botón siguiente
+    if (next) {
+      next.addEventListener('click', () => {
+        if (currentIndex < slides.length - 1) {
+          currentIndex++;
+          updateGallery();
+        }
+      });
+    }
+    
+    // Inicializar
+    updateGallery();
+  });
+});
+
 // Navegación de reseñas con flechas (2 tarjetas visibles)
 document.addEventListener('DOMContentLoaded', function() {
   const resenasGrid = document.querySelector('.resenas-grid');

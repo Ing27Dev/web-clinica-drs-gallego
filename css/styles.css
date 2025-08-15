@@ -76,14 +76,20 @@ header {
 }
 
 .logo-temp {
-  width: 40px;
-  height: 40px;
-  background: #29a0dc;
-  border-radius: 50%;
+  width: 300px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 100px;
+  overflow: hidden;
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 .logo-icon {
@@ -426,13 +432,16 @@ section {
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 10px;
+  gap: 8px;
   z-index: 4;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 90%;
 }
 
 .carrusel-dot {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: rgba(143, 137, 137, 0.5);
   cursor: pointer;
@@ -680,11 +689,14 @@ section {
 .tratamiento-card {
   background: var(--color-blanco);
   border-radius: 5px;
-  padding: 2rem;
+  padding: 0;
   box-shadow: var(--sombra);
   border: 1px solid var(--color-claro);
   transition: var(--transicion);
   text-align: center;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .tratamiento-card:hover {
@@ -705,6 +717,12 @@ section {
   font-size: 2rem;
 }
 
+.tratamiento-icon img {
+  width: 42px;
+  height: 42px;
+  display: block;
+}
+
 .tratamiento-card h4 {
   color: var(--color-oscuro);
   font-size: 1.5rem;
@@ -712,9 +730,90 @@ section {
   text-align: center;
 }
 
+.tratamiento-card h5 {
+  color: var(--color-principal);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
 .tratamiento-card p {
   color: var(--color-texto-claro);
   line-height: 1.6;
+}
+
+.tratamiento-contenido {
+  padding: 2rem;
+}
+
+.tratamiento-imagen {
+  width: 100%;
+  aspect-ratio: 16 / 18;
+  overflow: hidden;
+  margin-top: auto;
+}
+
+.tratamiento-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Galería de imágenes dentro de tratamientos */
+.tratamiento-galeria {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 18;
+  margin-top: auto;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.tratamiento-galeria .tg-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.tratamiento-galeria .tg-slide {
+  flex: 0 0 100%;
+  height: 100%;
+}
+
+.tratamiento-galeria .tg-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tratamiento-galeria .tg-prev,
+.tratamiento-galeria .tg-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.4);
+  color: #fff;
+  border: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.tratamiento-galeria .tg-prev { 
+  left: 10px; 
+}
+.tratamiento-galeria .tg-next { right: 10px; }
+
+.tratamiento-galeria .tg-prev:disabled,
+.tratamiento-galeria .tg-next:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 
 /* =========================
@@ -812,93 +911,7 @@ section {
   line-height: 1.6;
 }
 
-/* =========================
-   Sección Instalaciones
-   ========================= */
-.instalaciones {
-  margin-bottom: 4rem;
-}
 
-.instalaciones h3 {
-  color: var(--color-oscuro);
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  text-align: center;
-  position: relative;
-}
-
-.instalaciones h3::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: var(--color-complementario);
-  border-radius: 2px;
-}
-
-.instalaciones-intro {
-  text-align: center;
-  margin-bottom: 3rem;
-  font-size: 1.1rem;
-  color: var(--color-texto-claro);
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.instalaciones-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: 2rem;
-}
-
-.instalacion-card {
-  background: var(--color-blanco);
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: var(--sombra);
-  border: 1px solid var(--color-claro);
-  transition: var(--transicion);
-}
-
-.instalacion-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-}
-
-.instalacion-imagen {
-  height: 250px;
-  overflow: hidden;
-}
-
-.instalacion-imagen img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: var(--transicion);
-}
-
-.instalacion-card:hover .instalacion-imagen img {
-  transform: scale(1.05);
-}
-
-.instalacion-info {
-  padding: 2rem;
-}
-
-.instalacion-info h4 {
-  color: var(--color-oscuro);
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-.instalacion-info p {
-  color: var(--color-texto-claro);
-  line-height: 1.6;
-}
 
 /* =========================
    Sección Equipo
@@ -958,7 +971,8 @@ section {
 }
 
 .miembro-imagen {
-  height: 300px;
+  width: 100%;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
 }
 
@@ -1359,6 +1373,11 @@ footer {
   font-size: 1rem;
 }
 @media (max-width: 900px) {
+  .quienes-somos-texto {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
   .accesos-grid {
     flex-direction: column;
     gap: 1.5rem;
@@ -1379,6 +1398,11 @@ footer {
     flex-direction: column;
     gap: 1rem;
     padding: 1rem 0;
+  }
+
+  .quienes-somos-texto {
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .header-info-content {
@@ -1442,10 +1466,7 @@ footer {
     gap: 1.5rem;
   }
   
-  .instalaciones-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+
   
   .equipo-grid {
     grid-template-columns: 1fr;
@@ -1465,6 +1486,12 @@ footer {
   .clinica-content {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+  
+  .logo-temp {
+    width: 136px;
+    height: 136px;
+    margin-left: 20px;
   }
   
   .clinica-caracteristicas {
@@ -1490,6 +1517,11 @@ footer {
 @media (max-width: 480px) {
   main {
     padding: 1rem;
+  }
+
+  .quienes-somos-texto {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
   
   .header-info-content {
@@ -1534,7 +1566,6 @@ footer {
   }
   
   .tratamiento-card,
-  .instalacion-card,
   .miembro-card,
   .caracteristica-item {
     padding: 1.5rem;
@@ -1572,7 +1603,7 @@ footer {
     padding-right: 0.5rem;
     width: 100%;
   }
-  .quienes-somos, .carrusel, .resenas, .tratamientos, .la-clinica, .instalaciones, .equipo, .contacto {
+  .quienes-somos, .carrusel, .resenas, .tratamientos, .la-clinica, .equipo, .contacto {
     margin-bottom: 2rem;
   }
   .resenas-container {
@@ -1602,7 +1633,7 @@ footer {
     padding: 1rem;
     flex: 1 1 100%;
   }
-  .tratamientos-grid, .instalaciones-grid, .equipo-grid, .clinica-content, .contacto-content {
+  .tratamientos-grid, .equipo-grid, .clinica-content, .contacto-content {
     grid-template-columns: 1fr !important;
     gap: 1rem !important;
   }
@@ -1663,6 +1694,8 @@ footer {
   .logo-temp {
     margin-right: 0.7rem;
     align-self: center;
+    width: 200px;
+    height: 80px;
   }
   .menu-branding-texts {
     display: flex;
