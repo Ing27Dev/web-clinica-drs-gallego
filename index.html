@@ -75,7 +75,7 @@
           <div class="nav-container">
             <div class="menu-branding">
               <div class="logo-temp">
-                <img src="img/logos/logo_clinica.webp" alt="Logo Clínica Dental Doctores Gallego" class="logo-img">
+                <img src="img/logos/logo_clinica.webp" alt="Logo Clínica Dental Doctores Gallego" class="logo-img" loading="lazy">
               </div>
 
             </div>
@@ -96,7 +96,8 @@
     <main>
       <section class="quienes-somos">
         <div class="video-bg-container">
-          <video class="video-bg" src="assets/prueba.mp4" autoplay loop muted playsinline></video>
+          <video class="video-bg active" src="assets/video1.mp4" muted playsinline preload="auto"></video>
+          <video class="video-bg" src="assets/video2.mp4" muted playsinline preload="auto"></video>
         </div>
         <h3>Quienes Somos</h3>
         <div class="quienes-somos-content">
@@ -106,7 +107,6 @@
             <p>Nuestro objetivo va más allá de una visita puntual. Queremos ser tu clínica de confianza y la de tu familia, para toda la vida. Porque para nosotros, cuidar de tu salud bucal no es solo un trabajo: es una vocación.</p>
           </div>
         </div>
-        <h2 class="clinica-para-siempre">TU CLINICA DENTAL Y LA DE LOS TUYOS PARA SIEMPRE</h2>
       </section>
       
       <section class="resenas">
@@ -122,111 +122,124 @@
               <i class="fas fa-star"></i>
             </div>
             <div class="resenas-base">En base a <a href="https://www.google.com/search?sca_esv=8a9b147c61cd596e&sxsrf=AE3TifMfbAmHEyrl6N_LyEhJCYQkSdIw8A:1753522499102&uds=AOm0WdE2fekQnsyfYEw8JPYozOKzpVxMuW-e-iHDYOsGGirzmaoMqPViaUobrAbSr0tuHxEL1d1cUQlzmtn63YKQQV4MlQk1crH5BcM6HO6eepMNYPTKVAsuMQaGmYvz9trVGx8F-8t13sDy-l2cbe8MO9W0dYdBg3C5moWkpZjM024EWMWVCgwY4bCHFWR-T7WSuN7jMIyy&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-EzNnxOmRQ8-4Q3w-LBcrR2HIm4dx6DMXDr1EgGmr-sHX3LJoucEmAfPjiPxkDv0ERwxoL5Y%3D&q=Clinica+Dental+Doctores+Gallego+Rese%C3%B1as&sa=X&ved=2ahUKEwi5saitnNqOAxWfUaQEHaC7Ly0Q3PALegQIPRAF&biw=1280&bih=598&dpr=1.5" class="resenas-link" target="_blank" rel="noopener">63 reseñas</a></div>
-            <div class="resenas-google"><img src="img/logos/Google-Logo.webp" alt="Google logo" class="google-logo-img" style="height: 48px;"></div>
+            <div class="resenas-google"><img src="img/logos/Google-Logo.webp" alt="Google logo" class="google-logo-img" style="height: 48px;" loading="lazy"></div>
           </div>
           <div class="resenas-slider">
             <button class="resenas-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
             <div class="resenas-grid">
-            <div class="resena-card">
-              <div class="resena-header">
-                <div class="resena-avatar">
-                  <img src="https://lh3.googleusercontent.com/a-/ALV-UjVmreMfymLihFB2niD1X5_smaG7rhzxruKjfkoOhmEo65Wk2oeT=w108-h108-p-rp-mo-br100" alt="Foto de Pepe Vilanova" style="width:40px; height:40px; border-radius:50%;">
+
+              <div class="resena-card">
+                <div class="resena-header">
+                  <div class="resena-avatar">
+                    <img src="https://lh3.googleusercontent.com/a-/ALV-UjVmreMfymLihFB2niD1X5_smaG7rhzxruKjfkoOhmEo65Wk2oeT=w108-h108-p-rp-mo-br100" alt="Foto de Pepe Vilanova" style="width:40px; height:40px; border-radius:50%;" loading="lazy">
+                  </div>
+                  <div class="resena-info">
+                    <h4>Pepe Vilanova</h4>
+                    <p>Paciente en 2025</p>
+                  </div>
                 </div>
-                <div class="resena-info">
-                  <h4>Pepe Vilanova</h4>
-                  <p>Paciente en 2025</p>
+                <div class="resena-estrellas">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
                 </div>
-              </div>
-              <div class="resena-estrellas">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <div class="resena-texto">
-                "No es fácil encontrar un sitio donde te sientas tan tranquilo y en buenas manos. El equipo es súper profesional pero, sobre todo, muy humano. Explican todo con paciencia, te escuchan y se nota que les importa que estés bien. Salí contentísimo, no solo por el resultado, sino por cómo me han tratado. ¡Gracias de verdad!"
-              </div>
-            </div>
-            
-            <div class="resena-card">
-              <div class="resena-header">
-                <div class="resena-avatar">N</div>
-                <div class="resena-info">
-                  <h4>Nombre Apellido</h4>
-                  <p>Paciente desde 2019</p>
+                <div class="resena-texto">
+                  "No es fácil encontrar un sitio donde te sientas tan tranquilo y en buenas manos. El equipo es súper profesional pero, sobre todo, muy humano. Explican todo con paciencia, te escuchan y se nota que les importa que estés bien. Salí contentísimo, no solo por el resultado, sino por cómo me han tratado. ¡Gracias de verdad!"
                 </div>
               </div>
-              <div class="resena-estrellas">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <div class="resena-texto">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-              </div>
-            </div>
-            
-            <div class="resena-card">
-              <div class="resena-header">
-                <div class="resena-avatar">N</div>
-                <div class="resena-info">
-                  <h4>Nombre Apellido</h4>
-                  <p>Paciente desde 2021</p>
+              
+              <div class="resena-card">
+                <div class="resena-header">
+                  <div class="resena-avatar">
+                    <img src="https://lh3.googleusercontent.com/a/ACg8ocKWwP9y6MlZokZr8ttR8EX5Zc7WlZEdtNNYyBXxAQHpusrSOw=w36-h36-p-rp-mo-br100" alt="Foto de Ana Medina" style="width:40px; height:40px; border-radius:50%;" loading="lazy">
+                  </div>
+                  <div class="resena-info">
+                    <h4>Ana Medina García</h4>
+                    <p>Paciente en 2022</p>
+                  </div>
+                </div>
+                <div class="resena-estrellas">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="resena-texto">
+                  "Llevamos años asistiendo a la Clínica y estamos muy contentos ☺️ con el resultado y el trato que hemos recibido.
+                  Forman un buen equipo y son muy profesionales. Muy recomendable.👍"
                 </div>
               </div>
-              <div class="resena-estrellas">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-              </div>
-              <div class="resena-texto">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-              </div>
-            </div>
-            
-            <div class="resena-card">
-              <div class="resena-header">
-                <div class="resena-avatar">N</div>
-                <div class="resena-info">
-                  <h4>Nombre Apellido</h4>
-                  <p>Paciente desde 2018</p>
+              
+              <div class="resena-card">
+                <div class="resena-header">
+                  <div class="resena-avatar">
+                    <img src="https://lh3.googleusercontent.com/a-/ALV-UjW6yo_kVPbWvFrDH5YOZ_1rwD8N9lDo_ftcvtRQcqEcTO0Thec=w36-h36-p-rp-mo-br100" alt="Foto de Brenda Lopez" style="width:40px; height:40px; border-radius:50%;" loading="lazy">
+                  </div>
+                  <div class="resena-info">
+                    <h4>Brenda López</h4>
+                    <p>Paciente en 2022</p>
+                  </div>
+                </div>
+                <div class="resena-estrellas">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="resena-texto">
+                  "Muy satisfecha con el resultado!! Son un equipo excelente y muy profesionales. Gracias al trato recibo durante todo el tratamiento de ortodoncia :)"
                 </div>
               </div>
-              <div class="resena-estrellas">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <div class="resena-texto">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-              </div>
-            </div>
-            
-            <div class="resena-card">
-              <div class="resena-header">
-                <div class="resena-avatar">N</div>
-                <div class="resena-info">
-                  <h4>Nombre Apellido</h4>
-                  <p>Paciente desde 2022</p>
+              
+              <div class="resena-card">
+                <div class="resena-header">
+                  <div class="resena-avatar">
+                    <img src="https://lh3.googleusercontent.com/a/ACg8ocLaFNHGRzX_Q2YCZudUe7ZQ-gFXmHX3PivMkZsiulOKc7ho3A=w36-h36-p-rp-mo-br100" alt="Foto de ROSA LEAL" style="width:40px; height:40px; border-radius:50%;" loading="lazy">
+                  </div>
+                  <div class="resena-info">
+                    <h4>ROSA LEALMURILLO</h4>
+                    <p>Paciente en 2022</p>
+                  </div>
+                </div>
+                <div class="resena-estrellas">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="resena-texto">
+                  "Llevo unos años en manos de este equipo y tanto los resultados como el trato inmejorables. Buenas personas y mejores profesionales. Por muchos años más junto a vosotros. Ha sido un placer. Gracias."
                 </div>
               </div>
-              <div class="resena-estrellas">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+              
+              <div class="resena-card">
+                <div class="resena-header">
+                  <div class="resena-avatar">
+                    <img src="https://lh3.googleusercontent.com/a/ACg8ocKYyOKly_JBIbzevorUWWAV3KbGe8Jsdhcaue5x16yVlRBSew=w36-h36-p-rp-mo-br100" alt="Foto de 
+                    Ramón Badiola" style="width:40px; height:40px; border-radius:50%;" loading="lazy">
+                  </div>
+                  <div class="resena-info">
+                    <h4>Ramón Badiola Sánchez</h4>
+                    <p>Paciente en 2022</p>
+                  </div>
+                </div>
+                <div class="resena-estrellas">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="resena-texto">
+                  "Muy agradecido y muy contento tanto con el resultado y la forma de hacer mi tratamiento como en el trato que me han dado! La verdad es que les pongo la nota más alta que se puede dar a una clínica dental."
+                </div>
               </div>
-              <div class="resena-texto">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-              </div>
+
             </div>
           </div>
           <button class="resenas-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
@@ -235,13 +248,55 @@
     </main>
 
     <footer>
-      <p>© Empresa - Todos los derechos reservados</p>
+      <div class="footer-top">
+        <div class="footer-top-text">TU CLÍNICA DENTAL Y LA DE LOS TUYOS PARA SIEMPRE</div>
+      </div>
+      
+      <div class="footer-main">
+        <div class="footer-logo">
+          <img src="img/logos/logo_footer.webp" alt="Logo Clínica Dental Doctores Gallego" class="footer-logo-img" loading="lazy">
+        </div>
+        
+        <div class="footer-social">
+          <a href="https://www.facebook.com/ClinicaDrsGallego/?locale=es_ES" class="social-icon" target="_blank" rel="noopener">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/clinicadentaldrsgallego/" class="social-icon" target="_blank" rel="noopener">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-separator"></div>
+      
+      <div class="footer-legal">
+        <div class="footer-copyright">Copyright © 2025 Clínica Dental Doctores Gallego. Todos los derechos reservados.</div>
+        <div class="footer-links">
+          <a href="aviso-legal.html">Aviso legal</a> | <a href="politica-privacidad.html">Política de privacidad</a> | <a href="politica-cookies.html">Política de cookies</a>
+        </div>
+      </div>
     </footer>
 
     <!-- Botón flotante de WhatsApp -->
     <a href="https://wa.me/34691134918" class="whatsapp-float" target="_blank" rel="noopener" title="Contactar por WhatsApp">
       <i class="fab fa-whatsapp"></i>
     </a>
+
+    <!-- Popup de Cookies -->
+    <div id="cookie-popup" class="cookie-popup">
+      <div class="cookie-content">
+        <div class="cookie-header">
+          <i class="fas fa-cookie-bite"></i>
+          <h3>Política de Cookies</h3>
+        </div>
+        <div class="cookie-body">
+          <p>Utilizamos cookies para mejorar tu experiencia en nuestro sitio web. Al continuar navegando, aceptas el uso de cookies según nuestra <a href="politica-cookies.html" target="_blank">política de cookies</a>.</p>
+        </div>
+        <div class="cookie-actions">
+          <button id="accept-cookies" class="btn-accept">Aceptar</button>
+        </div>
+      </div>
+    </div>
 
     <script src="js/app.js"></script>
   </body>

@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
     showSlide(0);
 
     // Auto-play del carrusel
-    setInterval(nextSlide, 4000);
+    setInterval(nextSlide, 2500);
   }
 
   // Menú hamburguesa (en todas las vistas)
@@ -239,3 +239,153 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// Alternancia automática de videos de fondo en la sección "Quienes Somos"
+document.addEventListener('DOMContentLoaded', function() {
+  const videos = document.querySelectorAll('.video-bg');
+  const section = document.querySelector('.quienes-somos');
+  
+  if (videos.length >= 2 && section) {
+    let currentVideoIndex = 0;
+    let isSectionVisible = true;
+
+    function getNextIndex() {
+      return (currentVideoIndex + 1) % videos.length;
+    }
+
+    function crossfadeToNext() {
+      if (!isSectionVisible) return;
+      const current = videos[currentVideoIndex];
+      const nextIndex = getNextIndex();
+      const next = videos[nextIndex];
+
+      // Preparar el siguiente video
+      next.currentTime = 0;
+      next.muted = true;
+      next.classList.add('active');
+
+      const playPromise = next.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(() => {});
+      }
+
+      // Desactivar el actual tras permitir el crossfade
+      setTimeout(() => {
+        current.classList.remove('active');
+        setTimeout(() => {
+          if (!current.classList.contains('active')) {
+            current.pause();
+          }
+        }, 1100);
+      }, 50);
+
+      currentVideoIndex = nextIndex;
+    }
+
+    // Eventos de fin/error para cambiar de video
+    videos.forEach((video) => {
+      video.addEventListener('ended', crossfadeToNext);
+      video.addEventListener('error', crossfadeToNext);
+    });
+
+    // Iniciar reproducción del primero
+    const first = videos[currentVideoIndex];
+    first.muted = true;
+    first.currentTime = 0;
+    first.classList.add('active');
+    const startPromise = first.play();
+    if (startPromise && typeof startPromise.catch === 'function') {
+      startPromise.catch(() => {
+        crossfadeToNext();
+      });
+    }
+
+    // Pausar/Reanudar según visibilidad de la sección
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.2) {
+          isSectionVisible = true;
+          // Reanudar el video activo
+          const active = document.querySelector('.video-bg.active');
+          if (active) {
+            const p = active.play();
+            if (p && typeof p.catch === 'function') p.catch(() => {});
+          }
+        } else {
+          isSectionVisible = false;
+          // Pausar todos los videos para evitar consumo y eventos
+          videos.forEach(v => v.pause());
+        }
+      });
+    }, { threshold: [0, 0.25, 0.5, 0.75, 1] });
+
+    observer.observe(section);
+  }
+});
+
+// =========================
+// Actualización automática del año del copyright
+// =========================
+document.addEventListener('DOMContentLoaded', function() {
+  function updateCopyrightYear() {
+    const currentYear = new Date().getFullYear();
+    const copyrightElement = document.querySelector('.footer-copyright');
+    
+    if (copyrightElement) {
+      // Reemplazar el año en el texto del copyright
+      const copyrightText = copyrightElement.innerHTML;
+      const updatedText = copyrightText.replace(/Copyright © \d{4}/, `Copyright © ${currentYear}`);
+      copyrightElement.innerHTML = updatedText;
+    }
+  }
+  
+  // Actualizar el año solo una vez al cargar la página
+  updateCopyrightYear();
+});
+
+// =========================
+// Popup de Cookies
+// =========================
+document.addEventListener('DOMContentLoaded', function() {
+  const cookiePopup = document.getElementById('cookie-popup');
+  const acceptBtn = document.getElementById('accept-cookies');
+  
+  // Verificar si ya se han aceptado las cookies
+  const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+  
+  if (!cookiesAccepted && cookiePopup) {
+    // Mostrar el popup después de un pequeño delay para mejor UX
+    setTimeout(() => {
+      cookiePopup.classList.add('show');
+    }, 1000);
+    
+    // Función para aceptar cookies
+    function acceptCookies() {
+      localStorage.setItem('cookiesAccepted', 'true');
+      localStorage.setItem('cookiesAcceptedDate', new Date().toISOString());
+      hideCookiePopup();
+      
+      // Aquí puedes agregar código para activar Google Analytics u otras cookies
+      console.log('Cookies aceptadas');
+    }
+    
+    // Función para ocultar el popup
+    function hideCookiePopup() {
+      cookiePopup.classList.remove('show');
+      setTimeout(() => {
+        cookiePopup.style.display = 'none';
+      }, 400);
+    }
+    
+    // Event listener para aceptar cookies
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', acceptCookies);
+    }
+    
+    // Cerrar popup al hacer clic fuera de él
+    document.addEventListener('click', function(e) {
+      if (!cookiePopup.contains(e.target) && cookiePopup.classList.contains('show')) {
+        hideCookiePopup();
+      }
+    });
+  }
+});

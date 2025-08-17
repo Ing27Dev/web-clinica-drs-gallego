@@ -34,8 +34,6 @@ body {
 }
 
 
-/* Se ha quitado el text-align: justify de todos los textos */
-
 footer p {
   text-align: center;
 }
@@ -49,18 +47,18 @@ main, section {
    ========================= */
 header {
   background-color: var(--color-claro);
-  padding: 1rem 0; 
   box-shadow: var(--sombra);
   position: sticky;
   top: 0;
   z-index: 1000;
+  padding: 0.5rem 0;
 }
 
 .menu-branding {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.3rem;
   margin-right: 2rem;
   margin-left: 2rem;
   text-align: center;
@@ -71,25 +69,23 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.1rem;
+  gap: 0.05rem;
   text-align: center;
 }
 
 .logo-temp {
   width: 300px;
-  height: 80px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 100px;
-  overflow: hidden;
 }
 
 .logo-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  border-radius: 8px;
 }
 
 .logo-icon {
@@ -139,7 +135,6 @@ nav {
   align-items: center;
   justify-content: flex-start;
   flex: 1;
-  position: relative;
 }
 
 nav ul {
@@ -246,9 +241,6 @@ main {
   padding: 0;
 }
 
-html, body {
-  overflow-x: hidden;
-}
 
 section {
   margin-left: auto;
@@ -292,8 +284,22 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(1) brightness(0.7) blur(1.2px);
-  opacity: 0.92;
+  filter: brightness(0.4) contrast(1.2) saturate(0.8);
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Prioridad del video activo */
+.video-bg.active {
+	opacity: 0.92;
+	z-index: 1;
+}
+
+.video-bg:nth-child(2) {
+	z-index: 0;
 }
 
 .quienes-somos h3,
@@ -306,17 +312,11 @@ section {
 }
 
 .quienes-somos h3 {
-  color: var(--color-oscuro); 
+  color: var(--color-blanco); 
   font-size: 2.5rem;
   margin-bottom: 1rem;
   text-align: center;
   position: relative;
-  text-shadow: 
-    -0.5px -0.5px 0 #fff,
-    0.5px -0.5px 0 #fff,
-    -0.5px 0.5px 0 #fff,
-    0.5px 0.5px 0 #fff,
-    0 2px 8px rgba(0,0,0,0.7);
 }
 
 .quienes-somos h3::after {
@@ -329,21 +329,6 @@ section {
   height: 3px;
   background: var(--color-complementario);
   border-radius: 2px;
-}
-
-/* Estilo específico para el h2 "TU CLINICA DENTAL Y LA DE LOS TUYOS PARA SIEMPRE" */
-.clinica-para-siempre {
-  color: var(--color-oscuro); 
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  position: relative;
-  text-shadow: 
-    -0.5px -0.5px 0 #fff,
-    0.5px -0.5px 0 #fff,
-    -0.5px 0.5px 0 #fff,
-    0.5px 0.5px 0 #fff,
-    0 2px 8px rgba(0,0,0,0.7);
 }
 
 .clinica-para-siempre::before {
@@ -362,13 +347,19 @@ section {
   margin-top: 2rem;
 }
 
-.quienes-somos-texto {
+.quienes-somos p {
   font-size: 1.1rem;
   line-height: 1.8;
-  color: var(--color-texto-claro);
+  color: var(--color-blanco);
   margin-bottom: 2rem;
   margin-left: 100px;
   margin-right: 100px;
+  text-shadow: 
+    -0.5px -0.5px 0 #000,
+    0.5px -0.5px 0 #000,
+    -0.5px 0.5px 0 #000,
+    0.5px 0.5px 0 #000,
+    0 1px 3px rgba(0,0,0,0.8);
 }
 
 /* =========================
@@ -381,8 +372,8 @@ section {
 
 .carrusel-container {
   position: relative;
-  max-width: 800px;
-  height: 400px;
+  max-width: 1600px;
+  height: 800px;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 5px;
@@ -681,7 +672,7 @@ section {
 
 .tratamientos-grid {
   display: grid; 
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(2, 1fr); 
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -721,6 +712,9 @@ section {
   width: 42px;
   height: 42px;
   display: block;
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .tratamiento-card h4 {
@@ -870,6 +864,7 @@ section {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
   gap: 2rem;
   margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .caracteristica-item {
@@ -952,7 +947,7 @@ section {
 
 .equipo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
@@ -1158,74 +1153,6 @@ section {
   text-align: center;
 }
 
-.formulario-contacto {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.form-group label {
-  color: var(--color-oscuro);
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  padding: 0.75rem;
-  border: 2px solid var(--color-claro);
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: var(--transicion);
-  background: var(--color-blanco);
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--color-principal); 
-  box-shadow: 0 0 0 3px rgba(135, 205, 231, 0.1); 
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 120px; 
-}
-
-.btn-enviar {
-  background: linear-gradient(135deg, var(--color-principal), var(--color-oscuro));
-  color: var(--color-blanco);
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 5px;
-  font-size: 1.1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transicion);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-.btn-enviar:hover {
-  transform: translateY(-2px); 
-  box-shadow: 0 5px 15px rgba(135, 205, 231, 0.4);
-}
-
-.btn-enviar:active {
-  transform: translateY(0);
-}
-
 /* =========================
    Página 404 (error)
    ========================= */
@@ -1313,86 +1240,183 @@ section {
    Footer
    ========================= */
 footer {
-  background: linear-gradient(135deg, var(--color-oscuro), var(--color-principal));
-  color: var(--color-blanco);
-  text-align: center;
-  padding: 2rem;
-  margin-top: 4rem;
+  background: var(--color-blanco);
+  color: var(--color-texto);
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
 
-/* =========================
-   Sección Accesos
-   ========================= */
-.accesos-clinica {
-  margin: 3rem 0;
+/* Barra superior negra */
+.footer-top {
+  background: var(--color-principal);
+  padding: 1rem 0;
   text-align: center;
 }
-.accesos-grid {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 2rem;
+
+.footer-top-text {
+  color: var(--color-blanco);
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
-.acceso-card {
-  background: var(--color-blanco);
-  border-radius: 10px;
-  box-shadow: var(--sombra);
-  border: 1px solid var(--color-claro);
-  padding: 2rem 1.5rem;
-  text-decoration: none;
-  color: var(--color-oscuro);
-  width: 260px;
+
+/* Sección principal del footer */
+.footer-main {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo a la izquierda */
+.footer-logo {
+  flex: 1;
+}
+
+.footer-logo-img {
+  max-width: 225px;
+  height: auto;
+  filter: brightness(0.9);
   transition: var(--transicion);
 }
-.acceso-card:hover {
-  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-  transform: translateY(-5px) scale(1.03);
-  border-color: var(--color-complementario);
+
+.footer-logo-img:hover {
+  filter: brightness(1);
+  transform: scale(1.05);
+}
+
+/* Iconos de redes sociales a la derecha */
+.footer-social {
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
   background: var(--color-principal);
+  color: var(--color-blanco);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: var(--transicion);
 }
-.acceso-card:hover, .acceso-card:hover * {
-  color: var(--color-blanco) !important;
+
+.social-icon:hover {
+  background: var(--color-complementario);
+  transform: scale(1.1);
 }
-.acceso-icono {
-  font-size: 2.5rem;
-  color: var(--color-principal);
+
+.social-icon i {
+  font-size: 1.2rem;
+}
+
+/* Información legal */
+.footer-legal {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.footer-copyright {
+  color: var(--color-texto-claro);
+  font-size: 0.85rem;
   margin-bottom: 1rem;
 }
-.acceso-titulo {
-  font-size: 1.3rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: var(--color-oscuro);
-}
-.acceso-desc {
-  color: var(--color-texto-claro);
-  font-size: 1rem;
-}
-@media (max-width: 900px) {
-  .quienes-somos-texto {
-    margin-left: 2rem;
-    margin-right: 2rem;
-  }
 
-  .accesos-grid {
+.footer-links {
+  color: var(--color-texto-claro);
+  font-size: 0.8rem;
+}
+
+.footer-links a {
+  color: var(--color-texto-claro);
+  text-decoration: none;
+  transition: var(--transicion);
+}
+
+.footer-links a:hover {
+  color: var(--color-complementario);
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .footer-main {
     flex-direction: column;
-    gap: 1.5rem;
-    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem;
   }
-  .acceso-card {
-    width: 90vw;
-    max-width: 350px;
-    padding: 1.5rem 1rem;
+  
+  .footer-logo {
+    text-align: center;
+  }
+  
+  .footer-logo-img {
+    max-width: 188px;
+  }
+  
+  .footer-social {
+    justify-content: center;
+  }
+  
+  .footer-separator {
+    margin: 0 1rem;
+  }
+  
+  .footer-legal {
+    padding: 1.5rem;
+  }
+  
+  /* Texto de Quienes Somos en móviles */
+  .quienes-somos .quienes-somos-texto p {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: var(--color-texto) !important;
+    font-weight: normal !important;
+    text-shadow: none !important;
+    font-style: normal !important;
+  }
+  
+  .quienes-somos h3 {
+    color: var(--color-texto) !important;
+    text-shadow: none !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+  }
+  
+  .quienes-somos .clinica-para-siempre {
+    color: var(--color-texto) !important;
+    text-shadow: none !important;
+    font-weight: normal !important;
+    font-style: normal !important;
   }
 }
 
 /* =========================
    Responsive (adaptación a móviles y tablets)
    ========================= */
+@media (max-width: 1024px) {
+  .tratamientos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .equipo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .carrusel-container {
+    max-width: 1200px;
+    height: 600px;
+  }
+}
+
 @media (max-width: 768px) {
   nav ul {
     flex-direction: column;
@@ -1434,7 +1458,7 @@ footer {
   }
   
   .carrusel-container {
-    height: 300px;
+    height: 400px;
     max-width: 100%;
   }
   
@@ -1462,7 +1486,7 @@ footer {
   }
   
   .tratamientos-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
   
@@ -1489,9 +1513,9 @@ footer {
   }
   
   .logo-temp {
-    width: 136px;
-    height: 136px;
-    margin-left: 20px;
+    width: 180px !important;
+    height: 90px !important;
+    margin-left: 20px !important;
   }
   
   .clinica-caracteristicas {
@@ -1514,9 +1538,24 @@ footer {
   }
 }
 
+/* Media query para pantallas medianas (entre 768px y 1390px) */
+@media (min-width: 769px) and (max-width: 1390px) {
+  .logo-temp {
+    width: 250px !important;
+    height: 100px !important;
+    margin-left: 50px !important;
+  }
+}
+
 @media (max-width: 480px) {
   main {
     padding: 1rem;
+  }
+  
+  .logo-temp {
+    width: 160px !important;
+    height: 80px !important;
+    margin-left: 15px !important;
   }
 
   .quienes-somos-texto {
@@ -1593,7 +1632,7 @@ footer {
   }
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1390px) {
   main {
     padding: 1rem;
     max-width: 100vw;
@@ -1694,8 +1733,8 @@ footer {
   .logo-temp {
     margin-right: 0.7rem;
     align-self: center;
-    width: 200px;
-    height: 80px;
+    width: 250px;
+    height: 100px;
   }
   .menu-branding-texts {
     display: flex;
@@ -1719,7 +1758,7 @@ footer {
   }
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1390px) {
   .resenas-grid::-webkit-scrollbar {
     display: block !important;
   }
@@ -1731,6 +1770,121 @@ footer {
   }
   .resenas-grid {
     scrollbar-width: auto !important;
+  }
+}
+
+/* =========================
+   Popup de Cookies
+   ========================= */
+.cookie-popup {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  max-width: 400px;
+  background: var(--color-blanco);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  z-index: 10000;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--color-gris);
+}
+
+.cookie-popup.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.cookie-content {
+  padding: 1.5rem;
+}
+
+.cookie-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.cookie-header i {
+  font-size: 1.5rem;
+  color: var(--color-complementario);
+}
+
+.cookie-header h3 {
+  margin: 0;
+  color: var(--color-principal);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.cookie-body {
+  margin-bottom: 1.5rem;
+}
+
+.cookie-body p {
+  margin: 0;
+  color: var(--color-texto);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.cookie-body a {
+  color: var(--color-claro);
+  text-decoration: underline;
+  transition: var(--transicion);
+}
+
+.cookie-body a:hover {
+  color: var(--color-complementario);
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-accept {
+  background: var(--color-complementario);
+  color: var(--color-blanco);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transicion);
+  width: 100%;
+  min-width: 100%;
+}
+
+.btn-accept:hover {
+  background: #d89400;
+  transform: translateY(-2px);
+}
+
+
+
+/* Responsive para el popup de cookies */
+@media (max-width: 480px) {
+  .cookie-popup {
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+  }
+  
+  .cookie-content {
+    padding: 1.25rem;
+  }
+  
+  .cookie-actions {
+    flex-direction: column;
+  }
+  
+  .btn-accept {
+    min-width: 100%;
   }
 }
 
@@ -1759,18 +1913,18 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 } 
 
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: var(--color-oscuro);
-  cursor: pointer;
-  margin-left: 1rem;
-  z-index: 1100;
-}
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-oscuro);
+    cursor: pointer;
+    margin-left: 1rem;
+    z-index: 1100;
+  }
 
-@media (max-width: 1050px) {
+@media (max-width: 1390px) {
   nav {
     justify-content: space-between;
     align-items: center;
@@ -1796,26 +1950,20 @@ h1, h2, h3, h4, h5, h6 {
   }
   
   .menu-toggle {
-    position: absolute;
-    right: 50px;
-    z-index: 1100;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--color-complementario);
-  }
-  .menu-toggle {
     display: block;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-complementario);
+    cursor: pointer;
     margin-left: auto;
     margin-right: 50px;
     position: relative;
     right: 0;
     left: unset;
-    color: var(--color-complementario);
+    z-index: 1100;
   }
-  .menu-branding {
-    margin-left: 50px;
-    margin-right: 0;
-  }
+  
   nav ul {
     display: none;
     position: fixed;
@@ -1872,7 +2020,7 @@ h1, h2, h3, h4, h5, h6 {
   right: 20px;
   width: 60px;
   height: 60px;
-  background: var(--color-principal);
+  background: var(--color-whatsapp);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1886,7 +2034,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .whatsapp-float:hover {
-  background: var(--color-whatsapp);
+  background: var(--color-principal);
   transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
   color: var(--color-blanco);
@@ -1981,9 +2129,9 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     text-align: left;
   }
-}
+  }
 
-@media (max-width: 1050px) {
+@media (max-width: 1390px) {
   .header-info-content {
     flex-direction: column;
     gap: 1rem;
@@ -2095,3 +2243,155 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
   }
 }
+
+@media (max-width: 768px) {
+  .nav-container {
+    gap: 0.5rem;
+  }
+  
+  .menu-branding {
+    min-width: 100px;
+  }
+  
+  .menu-toggle {
+    min-width: 35px;
+    font-size: 1.5rem;
+  }
+}
+
+/* Estilos para páginas legales */
+.aviso-legal,
+.politica-privacidad,
+.politica-cookies {
+  padding: 2rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  min-height: 100vh;
+}
+
+.aviso-legal h3,
+.politica-privacidad h3,
+.politica-cookies h3 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--color-primario);
+  margin-bottom: 3rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.aviso-legal-content,
+.politica-privacidad-content,
+.politica-cookies-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.aviso-seccion,
+.politica-seccion {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  border-left: 5px solid var(--color-primario);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.aviso-seccion:hover,
+.politica-seccion:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+}
+
+.aviso-seccion h4,
+.politica-seccion h4 {
+  color: var(--color-primario);
+  font-size: 1.4rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-secundario);
+  padding-bottom: 0.5rem;
+}
+
+.aviso-seccion h5 {
+  color: var(--color-secundario);
+  font-size: 1.2rem;
+  margin: 1.5rem 0 1rem 0;
+  font-weight: 600;
+}
+
+.aviso-seccion p,
+.politica-seccion p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.aviso-seccion ul,
+.politica-seccion ul {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.aviso-seccion li,
+.politica-seccion li {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 0.8rem;
+  padding-left: 0.5rem;
+}
+
+.aviso-seccion strong,
+.politica-seccion strong {
+  color: var(--color-primario);
+  font-weight: 600;
+}
+
+/* Responsive para páginas legales */
+@media (max-width: 768px) {
+  .aviso-legal,
+  .politica-privacidad,
+  .politica-cookies {
+    padding: 1rem 0;
+  }
+  
+  .aviso-legal h3,
+  .politica-privacidad h3,
+  .politica-cookies h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .aviso-legal-content,
+  .politica-privacidad-content,
+  .politica-cookies-content {
+    padding: 0 1rem;
+  }
+  
+  .aviso-seccion,
+  .politica-seccion {
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .aviso-seccion h4,
+  .politica-seccion h4 {
+    font-size: 1.3rem;
+  }
+  
+  .aviso-seccion p,
+  .politica-seccion p {
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  .aviso-seccion li,
+  .politica-seccion li {
+    font-size: 1rem;
+  }
+} 
+
