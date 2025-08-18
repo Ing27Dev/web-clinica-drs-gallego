@@ -2075,6 +2075,12 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   transition: var(--transicion);
+  /* Mejorar la interactividad táctil */
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.3);
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 .contact-icon i {
@@ -2186,7 +2192,7 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
     white-space: normal;
-    z-index: 2000;
+    z-index: 9999;
     opacity: 0;
     visibility: hidden;
     transition: var(--transicion);
@@ -2198,6 +2204,11 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    /* Asegurar que esté por encima de todo */
+    pointer-events: auto;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
   }
   
   .contact-details.active {
@@ -2241,6 +2252,22 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+}
+
+/* Estilos específicos para dispositivos problemáticos */
+@media (max-width: 480px) {
+  .contact-details {
+    top: 70px;
+    min-width: 280px;
+    max-width: 95vw;
+    z-index: 9999;
+  }
+  
+  .contact-icon {
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0.3);
+    touch-action: manipulation;
   }
 }
 

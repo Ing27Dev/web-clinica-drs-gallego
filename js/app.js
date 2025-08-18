@@ -87,35 +87,57 @@ document.addEventListener('DOMContentLoaded', function() {
     contactItems.forEach(item => {
       const icon = item.querySelector('.contact-icon');
       const details = item.querySelector('.contact-details');
-      icon.classList.remove('active');
-      details.classList.remove('active');
+      if (icon && details) {
+        icon.classList.remove('active');
+        details.classList.remove('active');
+      }
     });
     activeContactItem = null;
   }
 
   function initMobileContactBehavior() {
+    // Usar el breakpoint original que funcionaba
     if (window.innerWidth <= 1050) {
       contactItems.forEach(item => {
         const icon = item.querySelector('.contact-icon');
         const details = item.querySelector('.contact-details');
 
-        icon.addEventListener('click', function(e) {
-          e.stopPropagation();
+        if (icon && details) {
+          // Limpiar event listeners anteriores
+          const newIcon = icon.cloneNode(true);
+          icon.parentNode.replaceChild(newIcon, icon);
+          const newDetails = details.cloneNode(true);
+          details.parentNode.replaceChild(newDetails, details);
           
-          // Si el mismo item ya está activo, cerrarlo
-          if (activeContactItem === item) {
+          // Obtener referencias actualizadas
+          const currentIcon = item.querySelector('.contact-icon');
+          const currentDetails = item.querySelector('.contact-details');
+          
+          currentIcon.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Si el mismo item ya está activo, cerrarlo
+            if (activeContactItem === item) {
+              closeAllContactDetails();
+              return;
+            }
+
+            // Cerrar el item activo anterior
             closeAllContactDetails();
-            return;
-          }
 
-          // Cerrar el item activo anterior
-          closeAllContactDetails();
+            // Activar el nuevo item
+            currentIcon.classList.add('active');
+            currentDetails.classList.add('active');
+            activeContactItem = item;
+          });
 
-          // Activar el nuevo item
-          icon.classList.add('active');
-          details.classList.add('active');
-          activeContactItem = item;
-        });
+          // Agregar event listener de touch para dispositivos táctiles
+          currentIcon.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            currentIcon.click();
+          }, { passive: false });
+        }
       });
 
       // Cerrar al hacer clic fuera
