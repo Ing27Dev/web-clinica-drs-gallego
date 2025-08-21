@@ -261,6 +261,57 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// Alternancia automática de fotos de fondo en la sección móvil "Slogan"
+document.addEventListener('DOMContentLoaded', function() {
+  const sloganBgs = document.querySelectorAll('.slogan-bg');
+  
+  if (sloganBgs.length >= 2) {
+    let currentSloganIndex = 0;
+    let isSloganVisible = true;
+
+    function getNextSloganIndex() {
+      return (currentSloganIndex + 1) % sloganBgs.length;
+    }
+
+    function changeSloganBackground() {
+      if (!isSloganVisible) return;
+      
+      const current = sloganBgs[currentSloganIndex];
+      const nextIndex = getNextSloganIndex();
+      const next = sloganBgs[nextIndex];
+
+      // Activar el siguiente fondo
+      next.classList.add('active');
+      
+      // Desactivar el actual
+      setTimeout(() => {
+        current.classList.remove('active');
+      }, 500);
+
+      currentSloganIndex = nextIndex;
+    }
+
+    // Cambiar fondo cada 2.5 segundos
+    setInterval(changeSloganBackground, 2500);
+
+    // Pausar/Reanudar según visibilidad de la sección
+    const sloganSection = document.querySelector('.slogan-movil');
+    if (sloganSection) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.2) {
+            isSloganVisible = true;
+          } else {
+            isSloganVisible = false;
+          }
+        });
+      }, { threshold: [0, 0.25, 0.5, 0.75, 1] });
+
+      observer.observe(sloganSection);
+    }
+  }
+});
+
 // Alternancia automática de videos de fondo en la sección "Quienes Somos"
 document.addEventListener('DOMContentLoaded', function() {
   const videos = document.querySelectorAll('.video-bg');

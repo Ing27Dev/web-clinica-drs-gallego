@@ -43,6 +43,101 @@ main, section {
 }
 
 /* =========================
+   Sección móvil con slogan y fotos de fondo
+   ========================= */
+.slogan-movil {
+  display: none; /* Oculto por defecto, solo visible en móvil */
+  position: relative;
+  height: auto;
+  min-height: auto;
+  overflow: hidden;
+}
+
+.slogan-bg-container {
+  position: relative;
+  width: 100%;
+  height: 500px; /* Altura adaptada para fotos de inicio */
+}
+
+.slogan-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  filter: brightness(0.6); /* Oscurecer un poco más para mejor legibilidad del texto */
+}
+
+.slogan-bg.active {
+  opacity: 1;
+}
+
+.slogan-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 0 2rem 0;
+  text-align: center;
+}
+
+.slogan-titulo {
+  color: var(--color-blanco);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+}
+
+.slogan-texto {
+  color: var(--color-blanco);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 600px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Mostrar solo en pantallas móviles */
+@media (max-width: 768px) {
+  .slogan-movil {
+    display: block;
+  }
+  
+  .slogan-titulo {
+    font-size: 2rem;
+  }
+  
+  .slogan-texto {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .slogan-titulo {
+    font-size: 1.8rem;
+  }
+  
+  .slogan-texto {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+
+
+/* =========================
    Header y navegación principal
    ========================= */
 header {
