@@ -291,8 +291,8 @@ document.addEventListener('DOMContentLoaded', function() {
       currentSloganIndex = nextIndex;
     }
 
-    // Cambiar fondo cada 2.5 segundos
-    setInterval(changeSloganBackground, 2500);
+    // Cambiar fondo cada 3.5 segundos
+    setInterval(changeSloganBackground, 3500);
 
     // Pausar/Reanudar según visibilidad de la sección
     const sloganSection = document.querySelector('.slogan-movil');

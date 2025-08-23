@@ -124,6 +124,35 @@ main, section {
   }
 }
 
+/* Media query específica para iPad mini, iPhone 12/14 y dispositivos similares */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .slogan-movil {
+    display: none; /* Ocultar slogan en iPad mini, mostrar solo video */
+  }
+  
+  .quienes-somos {
+    margin-top: 0; /* Eliminar margen superior ya que no hay slogan */
+  }
+}
+
+/* Media query para dispositivos de tamaño intermedio-pequeño (iPhone 12/14 landscape) */
+@media (min-width: 481px) and (max-width: 768px) and (orientation: landscape) {
+  .slogan-movil {
+    display: none; /* Ocultar slogan en orientación landscape, mostrar solo video */
+  }
+  
+  .quienes-somos {
+    margin-top: 0; /* Eliminar margen superior ya que no hay slogan */
+  }
+}
+
+/* Media query para dispositivos de tamaño intermedio (iPad mini y similares) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .quienes-somos {
+    margin-top: 2rem; /* Margen superior apropiado cuando no hay slogan */
+  }
+}
+
 @media (max-width: 480px) {
   .slogan-titulo {
     font-size: 1.8rem;
@@ -169,8 +198,8 @@ header {
 }
 
 .logo-temp {
-  width: 300px;
-  height: 120px;
+  width: 375px;
+  height: 150px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -418,18 +447,6 @@ section {
   content: '';
   position: absolute;
   bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 3px;
-  background: var(--color-complementario);
-  border-radius: 2px;
-}
-
-.clinica-para-siempre::before {
-  content: '';
-  position: absolute;
-  top: -10px;
   left: 50%;
   transform: translateX(-50%);
   width: 60px;
