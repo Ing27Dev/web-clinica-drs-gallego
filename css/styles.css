@@ -800,6 +800,8 @@ section {
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .tratamiento-card:hover {
@@ -854,7 +856,7 @@ section {
 
 .tratamiento-imagen {
   width: 100%;
-  aspect-ratio: 16 / 18;
+  aspect-ratio: 4 / 5;
   overflow: hidden;
   margin-top: auto;
 }
@@ -862,14 +864,19 @@ section {
 .tratamiento-imagen img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain !important;
+  max-height: 100%;
+  object-position: center;
+  background-color: #f8f9fa !important;
+  padding: 10px !important;
+  box-sizing: border-box;
 }
 
 /* Galería de imágenes dentro de tratamientos */
 .tratamiento-galeria {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 18;
+  aspect-ratio: 4 / 5;
   margin-top: auto;
   overflow: hidden;
   z-index: 1;
@@ -890,7 +897,10 @@ section {
 .tratamiento-galeria .tg-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain !important;
+  background-color: #f8f9fa !important;
+  padding: 5px !important;
+  box-sizing: border-box !important;
 }
 
 .tratamiento-galeria .tg-prev,
@@ -1070,6 +1080,8 @@ section {
   box-shadow: var(--sombra);
   border: 1px solid var(--color-claro);
   transition: var(--transicion);
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .miembro-card:hover {
@@ -1086,8 +1098,13 @@ section {
 .miembro-imagen img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain !important;
   transition: var(--transicion);
+  max-height: 100%;
+  object-position: center;
+  background-color: #f8f9fa !important;
+  padding: 10px !important;
+  box-sizing: border-box;
 }
 
 .miembro-card:hover .miembro-imagen img {
@@ -1603,7 +1620,7 @@ footer {
   }
   
 
-  
+
   .equipo-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -1625,8 +1642,8 @@ footer {
   }
   
   .logo-temp {
-    width: 180px !important;
-    height: 90px !important;
+    width: 220px !important;
+    height: 110px !important;
     margin-left: 20px !important;
   }
   
@@ -1665,8 +1682,8 @@ footer {
   }
   
   .logo-temp {
-    width: 160px !important;
-    height: 80px !important;
+    width: 200px !important;
+    height: 100px !important;
     margin-left: 15px !important;
   }
 
@@ -2532,5 +2549,121 @@ h1, h2, h3, h4, h5, h6 {
   .politica-seccion li {
     font-size: 1rem;
   }
+} 
+
+/* =========================
+   Media Queries para pantallas grandes (Desktop)
+   ========================= */
+@media (min-width: 1200px) {
+  /* Limitar el tamaño máximo de las tarjetas en pantallas grandes */
+  .tratamientos-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .equipo-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  /* Limitar el tamaño máximo de las imágenes en las tarjetas */
+  .tratamiento-imagen {
+    max-height: 450px;
+  }
+  
+  .tratamiento-galeria {
+    max-height: 450px;
+  }
+  
+  .miembro-imagen {
+    max-height: 500px;
+  }
+  
+  /* Ajustar el grid para pantallas muy grandes */
+  .tratamientos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+  
+  .equipo-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  /* Para pantallas muy grandes, limitar aún más el ancho máximo */
+  .tratamientos-grid,
+  .equipo-grid {
+    max-width: 1600px;
+  }
+  
+  /* Ajustar el grid para pantallas ultra grandes */
+  .tratamientos-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
+  
+  .equipo-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
+  
+  /* Limitar aún más la altura de las imágenes */
+  .tratamiento-imagen,
+  .tratamiento-galeria {
+    max-height: 400px;
+  }
+  
+  .miembro-imagen {
+    max-height: 450px;
+  }
+}
+
+@media (min-width: 1920px) {
+  /* Para pantallas Full HD y superiores */
+  .tratamientos-grid,
+  .equipo-grid {
+    max-width: 1800px;
+  }
+  
+  /* Mantener 4 columnas pero con más espacio */
+  .tratamientos-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3.5rem;
+  }
+  
+  .equipo-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3.5rem;
+  }
+} 
+
+/* =========================
+   Reglas forzadas para imágenes completas
+   ========================= */
+.tratamiento-imagen img,
+.miembro-imagen img {
+  object-fit: contain !important;
+  object-position: center !important;
+  background-color: #f8f9fa !important;
+  padding: 10px !important;
+  box-sizing: border-box !important;
+}
+
+/* Asegurar que las imágenes de tratamientos se muestren completas */
+.tratamiento-imagen img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+/* Asegurar que las imágenes de equipo se muestren completas */
+.miembro-imagen img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
 } 
 
