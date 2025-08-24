@@ -422,7 +422,8 @@ section {
 	z-index: 1;
 }
 
-.video-bg:nth-child(2) {
+.video-bg:nth-child(2),
+.video-bg:nth-child(3) {
 	z-index: 0;
 }
 
