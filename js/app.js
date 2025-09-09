@@ -162,6 +162,39 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
+// Mostrar/ocultar texto de tratamientos con botón "Ver más"
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.tratamiento-card');
+
+  cards.forEach((card) => {
+    const contenido = card.querySelector('.tratamiento-contenido');
+    if (!contenido) return;
+
+    const paragraphs = contenido.querySelectorAll('p');
+    if (paragraphs.length === 0) return;
+
+    // Ocultar párrafos inicialmente
+    contenido.classList.add('collapsed');
+
+    // Crear botón Ver más / Ver menos
+    const toggleBtn = document.createElement('button');
+    toggleBtn.className = 'ver-mas-btn';
+    toggleBtn.type = 'button';
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    toggleBtn.textContent = 'Ver más';
+
+    // Insertar el botón al final del contenido textual
+    contenido.appendChild(toggleBtn);
+
+    // Alternar estado al pulsar
+    toggleBtn.addEventListener('click', function() {
+      const isCollapsed = contenido.classList.toggle('collapsed');
+      toggleBtn.textContent = isCollapsed ? 'Ver más' : 'Ver menos';
+      toggleBtn.setAttribute('aria-expanded', String(!isCollapsed));
+    });
+  });
+});
+
 // Galería por tarjeta de tratamiento
 document.addEventListener('DOMContentLoaded', function() {
   const galerias = document.querySelectorAll('.tratamiento-galeria');
