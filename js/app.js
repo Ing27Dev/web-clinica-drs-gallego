@@ -451,47 +451,134 @@ document.addEventListener('DOMContentLoaded', function() {
 // =========================
 // Popup de Cookies
 // =========================
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
   const cookiePopup = document.getElementById('cookie-popup');
-  const acceptBtn = document.getElementById('accept-cookies');
-  
-  // Verificar si ya se han aceptado las cookies
-  const cookiesAccepted = localStorage.getItem('cookiesAccepted');
-  
-  if (!cookiesAccepted && cookiePopup) {
-    // Mostrar el popup después de un pequeño delay para mejor UX
+  const acceptBtn   = document.getElementById('accept-cookies');
+  const rejectBtn   = document.getElementById('reject-cookies');
+
+  const getConsent = () => localStorage.getItem('cookiesConsent'); // 'accepted' | 'rejected' | null
+  const setConsent = (v) => localStorage.setItem('cookiesConsent', v);
+
+  function showPopup()  {
+    if (!cookiePopup) return;
+    // Quitar cualquier display:none inline y asegurar transición
+    cookiePopup.style.display = '';
+    cookiePopup.classList.remove('show');
+    void cookiePopup.offsetWidth; // reflow
+    cookiePopup.classList.add('show');
+  }
+
+  function hidePopup()  {
+    if (!cookiePopup) return;
+    cookiePopup.classList.remove('show');
+    // Opcional: ocultar totalmente tras la animación
     setTimeout(() => {
-      cookiePopup.classList.add('show');
-    }, 1000);
-    
-    // Función para aceptar cookies
-    function acceptCookies() {
-      localStorage.setItem('cookiesAccepted', 'true');
-      localStorage.setItem('cookiesAcceptedDate', new Date().toISOString());
-      hideCookiePopup();
-      
-      // Aquí puedes agregar código para activar Google Analytics u otras cookies
-      console.log('Cookies aceptadas');
-    }
-    
-    // Función para ocultar el popup
-    function hideCookiePopup() {
-      cookiePopup.classList.remove('show');
-      setTimeout(() => {
+      if (!cookiePopup.classList.contains('show')) {
         cookiePopup.style.display = 'none';
-      }, 400);
-    }
-    
-    // Event listener para aceptar cookies
-    if (acceptBtn) {
-      acceptBtn.addEventListener('click', acceptCookies);
-    }
-    
-    // Cerrar popup al hacer clic fuera de él
-    document.addEventListener('click', function(e) {
-      if (!cookiePopup.contains(e.target) && cookiePopup.classList.contains('show')) {
-        hideCookiePopup();
       }
+    }, 250);
+  }
+
+  function applyConsent() {
+    const c = getConsent();
+    const holder = document.getElementById('map-holder');
+    if (!holder) return;
+
+    const src    = holder.getAttribute('data-src');
+    const loaded = holder.getAttribute('data-loaded') === '1';
+
+    if (c === 'accepted' && src && !loaded) {
+      const iframe = document.createElement('iframe');
+      iframe.src = src;
+      iframe.loading = 'lazy';
+      iframe.style = 'border:0;width:100%;height:400px';
+      iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+      iframe.setAttribute('allowfullscreen', '');
+      holder.innerHTML = '';
+      holder.appendChild(iframe);
+      holder.setAttribute('data-loaded', '1');
+    }
+
+    if (c !== 'accepted' && !loaded) {
+      holder.innerHTML =
+        '<div style="text-align:center;padding:16px;background:#f2f2f2;border-radius:12px">' +
+        '<strong>Mapa bloqueado por preferencias de cookies</strong><br>' +
+        'Para ver el mapa de Google, acepta las cookies.' +
+        '</div>';
+    }
+  }
+
+  // 1) Primera visita: si no hay decisión, mostrar popup
+  if (!getConsent() && cookiePopup) showPopup();
+
+  // 2) Reapertura desde hash (botón del footer redirige a index#open-cookies)
+  if (cookiePopup && window.location.hash === '#open-cookies') {
+    try { localStorage.removeItem('cookiesConsent'); } catch(e){}
+    showPopup();
+  }
+
+  // 3) Botones aceptar/rechazar
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', () => {
+      setConsent('accepted');
+      hidePopup();
+      applyConsent();
     });
   }
+  if (rejectBtn) {
+    rejectBtn.addEventListener('click', () => {
+      setConsent('rejected');
+      hidePopup();
+      applyConsent();
+    });
+  }
+
+  // 4) Aplicar consentimiento a contenidos embebidos
+  applyConsent();
+});
+
+// --- REABRIR POPUP CUANDO CAMBIA EL HASH A #open-cookies ---
+(function(){
+  function handleOpenCookiesHash() {
+    const cookiePopup = document.getElementById('cookie-popup');
+    if (!cookiePopup) return;
+
+    if (window.location.hash === '#open-cookies') {
+      try { localStorage.removeItem('cookiesConsent'); } catch(e){}
+      // Asegurar que no queda oculto por display:none
+      cookiePopup.style.display = '';
+      cookiePopup.classList.remove('show');
+      void cookiePopup.offsetWidth; // reflow
+      cookiePopup.classList.add('show');
+    }
+  }
+
+  // Ejecuta al cargar (por si ya llegas con el hash)
+  document.addEventListener('DOMContentLoaded', handleOpenCookiesHash);
+  // Ejecuta si cambias el hash estando en index.html
+  window.addEventListener('hashchange', handleOpenCookiesHash);
+})();
+
+// === Botón "Preferencias de cookies" (funciona SIEMPRE) ===
+document.addEventListener('DOMContentLoaded', function () {
+  const openBtn     = document.getElementById('open-cookie-settings');
+  const cookiePopup = document.getElementById('cookie-popup');
+
+  if (!openBtn) return;
+
+  openBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    if (cookiePopup) {
+      // Estamos en index.html → abrir sin tocar la decisión guardada
+      cookiePopup.style.display = '';
+      cookiePopup.classList.remove('show');
+      void cookiePopup.offsetWidth; // reflow para animación
+      cookiePopup.classList.add('show');
+    } else {
+      // No estamos en index.html → forzar navegación SIEMPRE
+      const url = 'index.html#open-cookies-' + Date.now();
+      window.location.href = url;
+    }
+  });
 });
